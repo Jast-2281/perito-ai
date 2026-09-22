@@ -232,10 +232,10 @@ Latencia medida de punta a punta: la lectura con modelo domina el tiempo (unos s
 motor determinista aporta entre 0.2 y 11 ms. Son magnitudes distintas y el pie de cada dictamen
 las muestra por separado, para no presentar la velocidad del motor como si fuera la del sistema.
 
-**Ese tiempo es el del motor, no la latencia del sistema.** Cuando exista la lectura con modelo,
+**Ese tiempo es el del motor, no la latencia del sistema.** Ahora que existe la lectura con modelo,
 la latencia de punta a punta la dominará la llamada al modelo y habrá que medirla aparte.
 
-`55 de 55` es una base de regresión, no un certificado de ausencia de errores. Ocho revisiones
+`59 de 59` es una base de regresión, no un certificado de ausencia de errores. Ocho revisiones
 externas sucesivas encontraron treinta fallos que estas mismas pruebas no veían: totales sin
 conciliar, un descuento aplicado dos veces, una autorización pendiente presentada como
 conformidad, un subtotal falso que producía conformidad, explicaciones que sumaban más que lo
