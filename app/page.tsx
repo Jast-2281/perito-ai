@@ -97,9 +97,9 @@ export default function Pagina() {
         Panamá 2026. No corresponden a ninguna aseguradora ni taller real. El motor de decisión
         corre sin red y sin llamar a ningún modelo: las reglas, los montos y las cláusulas salen
         solo del tarifario. Un modelo de lenguaje interviene únicamente para leer una factura
-        escrita en prosa y citar de dónde sale cada dato. Esa cita se contrasta contra las etiquetas
-        del propio texto antes de auditarse; verificarla contra el documento fuente es el
-        siguiente trabajo.
+        escrita en prosa y citar de dónde sale cada dato. Esa cita se comprueba contra el propio texto pegado antes de auditarse: si el fragmento no
+        aparece ahí, el campo se descarta. Eso no verifica un PDF o imagen original, porque hoy
+        no existe esa carga de archivo.
       </footer>
     </div>
   );

@@ -35,9 +35,9 @@ se paga lo calcula un motor determinista sobre el tarifario**.
 
 ## Cómo funciona
 
-1. **Entra una factura** desde el corpus precargado. **Todavía no existe entrada de facturas
-   nuevas ni lectura con modelo de lenguaje**: es el trabajo pendiente número uno y está en la
-   sección de limitaciones.
+1. **Entra una factura** desde el corpus precargado o mediante texto pegado en el formulario de
+   la aplicación. Cuando el texto viene pegado, un modelo de lenguaje extrae los campos y cita el
+   fragmento exacto del que sale cada uno.
 2. **Lectura**: cada dato viaja con el fragmento textual del que salió y con su procedencia.
    `documento` es texto literal de la factura; `reconstruida` es un resumen que arma el motor con
    los campos, y **no prueba** que la factura diga eso, así que esa línea queda pendiente de
@@ -280,7 +280,7 @@ ninguna llamada a un modelo ni a Notion en esta versión.
 | --- | --- | --- |
 | Motor de decisión (`src/dominio/motor.ts`) | En el servidor, sin red | **No** |
 | Corpus y tarifario (`src/datos/`) | En el servidor | **No** |
-| Lectura de facturas en prosa | *No implementado todavía* | — |
+| Lectura de facturas en prosa | En el servidor, con clave fuera del cliente | **Sí**, a la API de Anthropic |
 
 ## Dónde está todo
 
@@ -331,10 +331,7 @@ pagar.
 
 ## Limitaciones conocidas
 
-- **La cita no se verifica contra el texto original.** El modelo extrae el campo y su fragmento
-  de respaldo, pero nadie comprueba todavía que ese fragmento exista literalmente en el
-  documento fuente. Es la principal limitación restante: falta buscar el fragmento en el texto
-  de origen y rechazar la extracción si no aparece.
+- **La cita se verifica contra el texto pegado, no contra un documento original.** `citaPresenteEnDocumento` comprueba que cada fragmento citado exista literalmente en el texto que se pegó; si no aparece, ese campo se descarta. Lo que no existe es comparar ese texto contra un PDF o una imagen: hoy no hay carga de archivo, solo texto pegado a mano.
 - **El deducible no se aplica**: se reporta en el expediente pero no se descuenta del pago.
 - **El tarifario está escrito a mano**, no leído de un PDF de convenio.
 - **Las trampas las escribió el mismo equipo** que escribió el motor. Una factura de alguien ajeno
