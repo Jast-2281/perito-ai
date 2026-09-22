@@ -110,9 +110,9 @@ excederlo. Un precio unitario alto con el importe ya ajustado no descuenta nada.
 
 ```bash
 npm run check             # las cinco puertas, sin red y sin claves
-npm run check:trampas     # el guantelete: 78 facturas con dictamen conocido
+npm run check:trampas     # el guantelete: 80 facturas con dictamen conocido
 npm run check:cobertura   # ¿hay alguna regla que ninguna trampa llega a ejecutar?
-npm run check:extraccion  # 28 respuestas simuladas del modelo, incluidas las que mienten
+npm run check:extraccion  # 32 respuestas simuladas del modelo, incluidas las que mienten
 npm run check:integracion # el recorrido completo: texto → extracción → motor → dictamen
 npm run check:mutantes    # rompe el motor regla por regla y exige que el guantelete se dé cuenta
 ```
@@ -135,7 +135,7 @@ Las cinco puertas son distintas a propósito, y una no sustituye a otra:
 
 ### El guantelete
 
-36 facturas con el dictamen que deben producir. **Diez de ellas son limpias a propósito**, y están
+80 facturas con el dictamen que deben producir. **Diez de ellas son limpias a propósito**, y están
 diseñadas para provocar una objeción falsa:
 
 - horas decimales exactamente en el estándar (1.5 h)
@@ -158,7 +158,7 @@ mismo día del siniestro contra un día antes; suma asegurada agotada exactament
 
 ### La extracción con IA
 
-Quince respuestas simuladas del modelo, sin llamar a la API. La mitad son ataques a la regla que
+Treinta y dos respuestas simuladas del modelo, sin llamar a la API. La mitad son ataques a la regla que
 sostiene todo el proyecto — *el modelo lee y cita, nunca decide*:
 
 - una sola palabra del documento ("Factura") citada como respaldo de **todos** los campos, con
