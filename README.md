@@ -331,13 +331,10 @@ pagar.
 
 ## Limitaciones conocidas
 
-- **No hay entrada de facturas nuevas ni lectura con modelo de lenguaje.** La aplicación audita
-  un corpus precargado y **ninguna parte de ella llama a un modelo**. Es la brecha más grande
-  contra lo que pide el reto y el siguiente trabajo.
-- **La procedencia de la cita se declara, no se verifica.** Cualquier `textoOriginal` no vacío se
-  toma como fragmento del documento; nadie comprueba que exista en una fuente. Cuando entre la
-  extracción con modelo, esa comprobación tiene que ser obligatoria: buscar el fragmento en el
-  texto de origen y rechazar la extracción si no aparece.
+- **La cita no se verifica contra el texto original.** El modelo extrae el campo y su fragmento
+  de respaldo, pero nadie comprueba todavía que ese fragmento exista literalmente en el
+  documento fuente. Es la principal limitación restante: falta buscar el fragmento en el texto
+  de origen y rechazar la extracción si no aparece.
 - **El deducible no se aplica**: se reporta en el expediente pero no se descuenta del pago.
 - **El tarifario está escrito a mano**, no leído de un PDF de convenio.
 - **Las trampas las escribió el mismo equipo** que escribió el motor. Una factura de alguien ajeno
@@ -355,8 +352,7 @@ pagar.
 
 ## Trabajo futuro
 
-En orden: entrada de una factura nueva por texto pegado con extracción real hecha por un modelo
-desde el servidor y la clave fuera del cliente; validación en ejecución de lo extraído (campos
+En orden: verificar automáticamente cada cita contra el texto original antes de confiar en ella; validación en ejecución de lo extraído (campos
 obligatorios, fechas, importes finitos en centavos) que pida revisión en vez de inventar datos;
 ver el documento al lado del hallazgo; filtrar la bandeja por estado y exportar el informe; y
 después el borrador de objeción al taller. Notion queda fuera a propósito: el reto 2 no lo exige y
