@@ -58,12 +58,14 @@ export default function Pagina() {
           decide: deriva.
         </p>
         <p className="titular__nota">
-          <strong>Estado del prototipo:</strong> esta versión audita un corpus precargado. Todavía
-          no hay entrada de facturas nuevas ni lectura con un modelo de lenguaje, y ninguna parte
-          de la aplicación llama a un modelo. Es el siguiente trabajo, no algo que ya esté hecho.
+          <strong>Estado del prototipo:</strong> este prototipo permite auditar facturas nuevas
+          mediante texto pegado. La IA extrae los campos y sus citas; un motor determinista
+          verifica las reglas del tarifario. Incluye además un corpus de 80 facturas sintéticas
+          para explorar distintos resultados.
         </p>
       </section>
 
+      <p className="titular__nota">Resultados del corpus sintético de referencia</p>
       <section className="cifras">
         <div className="cifra">
           <div className="cifra__valor mono">{formato(totalFacturado)}</div>

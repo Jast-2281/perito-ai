@@ -50,8 +50,8 @@ export default function PanelDictamen({ dictamen: d, nota }: { dictamen: Dictame
             <strong className="mono">{formato(d.montoPorConciliar)}</strong>
           </div>
         )}
-        <div className="dictamen__celda dictamen__celda--pagar">
-          <span>Importe reconocido preliminar</span>
+                <div className={`dictamen__celda ${d.requiereRevision ? '' : 'dictamen__celda--pagar'}`}>
+          <span>{d.requiereRevision ? 'Importe calculado, sujeto a confirmación' : 'Importe reconocido preliminar'}</span>
           <strong className="mono">{formato(d.totalAPagar)}</strong>
         </div>
         <div className="dictamen__celda">
